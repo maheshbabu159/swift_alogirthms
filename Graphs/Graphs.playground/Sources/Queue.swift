@@ -1,18 +1,19 @@
 import Foundation
-public struct Queue<T> {
-  var items: [T] = []
-  public init(){}
-  public mutating func enqueue(element: T){
-    items.append(element)
-  }
-  public mutating func dequeue() -> T? {
-    if items.isEmpty {
-      return nil
-    } else{
-      return items.remove(at: 0)
+
+public class Queue{
+    var array:[GraphVertex]
+    public init(){
+        array = [GraphVertex]()
     }
-  }
-  public var isEmpty: Bool {
-    return items.isEmpty
-  }
+    
+    public func isEmpty() -> Bool {
+        return self.array.isEmpty == true
+    }
+    
+    public func enQueue(vertex:GraphVertex){
+        self.array.append(vertex)
+    }
+    public func deQueue() -> GraphVertex {
+        return self.array.removeFirst()
+    }
 }

@@ -2,6 +2,7 @@ import Foundation
 public class BinaryTree {
     var rootNode:TreeNode?
     let queue = Queue()
+    var totalHeight:Int?
     public init(){
         
     }
@@ -62,6 +63,64 @@ public class BinaryTree {
                 return false
             }
         }
+    }
+    
+    /* Check if the tree is balanced.*/
+    public func isBalanced() -> Bool {
+        var root = self.rootNode
+        if root == nil {
+            return true
+        }
+        
+        var leftNodeHeight = 0
+        while root != nil {
+            leftNodeHeight += 1
+            print("Left height \(leftNodeHeight)")
+
+            root = root?.leftNode
+            if root == nil {
+                if let tempHeight = self.totalHeight {
+                    if(abs(tempHeight - leftNodeHeight) > 1){
+                        return false
+                    }
+                    
+                    if tempHeight < leftNodeHeight {
+                        self.totalHeight = leftNodeHeight
+                    }
+                    print("Left total height \(tempHeight)")
+                }
+                
+            
+                
+
+            }
+        }
+        
+        var rightNodeHeight = 0
+
+        root = self.rootNode
+        while root != nil {
+            rightNodeHeight += 1
+            print("Right height \(rightNodeHeight)")
+
+            root = root?.rightNode
+            if root == nil {
+                if let tempHeight = self.totalHeight {
+                    if(abs(tempHeight - rightNodeHeight) > 1){
+                        return false
+                    }
+                    if tempHeight < rightNodeHeight {
+                        totalHeight = rightNodeHeight
+                    }
+                    print("Right total height \(tempHeight)")
+                }
+              
+
+            }
+        }
+        
+        //print(totalHeight)
+        return true
     }
 }
 extension BinaryTree {

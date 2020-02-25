@@ -13,9 +13,9 @@ binaryTree.insert(10)
 binaryTree.insert(25)
 binaryTree.insert(40)
 
-let searchResult = binaryTree.search(55)
-print("Search Result = \(searchResult)")
-binaryTree.traverse()
+//let searchResult = binaryTree.search(55)
+//print("Search Result = \(searchResult)")
+//binaryTree.traverse()
 
 
 
@@ -31,3 +31,6 @@ binaryTree.traverse()
 //tree.insert("B")
 //tree.insert("C")
 //tree.traverse()
+
+let isBlanaced = binaryTree.isBalanced()
+print("Is Binary Tree Balanced = \(isBlanaced)")
