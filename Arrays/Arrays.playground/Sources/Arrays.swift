@@ -228,5 +228,36 @@ public class Arrays{
         }
         print("Num = \(count) and times = \(freq_num)");
     }
+    
+    public func removeDuplicatesFromSortedArray(){
+        var nums = [0,0,1,1,1,2,2,3,3,3]
+        var l = nums.count
+        for i in 0..<(l - 1) {
+            let x = nums[i]
+            let y = nums[i+1]
+            
+            if x == y {
+                nums[i] = -1
+            }
+        }
+        
+        print("\(nums[l - 1]) \(nums[l - 2])")
+        if nums[l - 1] == nums[l - 2] {
+            nums[l - 1] = -1
+        }
+        
+        var j = 0
+        while j < l {
+            if nums[j] == -1 {
+                nums.remove(at: j)
+                l = nums.count
+                j = 0
+                continue
+            }
+            j += 1
+        }
+    
+        nums.forEach{ print($0) }
+    }
 }
 

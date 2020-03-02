@@ -7,4 +7,6 @@ let arrays = Arrays()
 //arrays.addTwoStrings()
 //print(arrays.advanceThroughArray())
 //print(arrays.maxProfit())
-print(arrays.maxRepeatedElement())
+//print(arrays.maxRepeatedElement())
+
+arrays.removeDuplicatesFromSortedArray()
